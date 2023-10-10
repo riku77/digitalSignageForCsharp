@@ -1,0 +1,62 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="pptTester.SettingsWindow"
+        Title="Initial Setup" Height="500" Width="930"
+        MinHeight="500" MinWidth="930"
+        ResizeMode="NoResize"
+    >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="0" HorizontalAlignment="Stretch" />
+
+        <Border Grid.Column="0"
+            Background="LightGray"
+                BorderBrush="Black">
+            <!-- 左側の画面のコンテンツをここに配置 -->
+            <!--設定切り替え場所-->
+            <ScrollViewer>
+
+                <StackPanel x:Name="settingsContainer">
+
+                    <ListBox x:Name="ListBox1">
+                        <ListBoxItem Content="🛠動画プレイリスト設定" 
+                                 MouseDoubleClick="goToVideoSetting"/>
+                        <ListBoxItem Content="🛠powerPointプレイリスト設定" 
+                                     MouseDoubleClick="goToPptxSetting"
+                                     />
+                        <ListBoxItem Content="🛠webサイト表示設定" />
+                    </ListBox>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+
+        </Border>
+
+        <Border  Grid.Column="2"
+                 BorderBrush="Black">
+  
+            <!--
+            dockePanelを使うと良い
+            stackPanelにすると要素が画面外に行くし
+            スクロールもできなくなる
+            -->
+            <DockPanel>
+                <Frame x:Name="contentFrame" 
+                       Content="左のメニューから設定したい項目を左ダブルクリックしてください(🛠が目印)"
+                       NavigationUIVisibility="Hidden"
+                       />
+            </DockPanel>
+  
+        </Border>
+
+
+    </Grid>
+</Window>

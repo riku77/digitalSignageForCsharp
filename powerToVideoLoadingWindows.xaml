@@ -1,0 +1,15 @@
+﻿<Window x:Class="pptTester.powerToVideoLoadingWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pptTester"
+        mc:Ignorable="d"
+        Title="powerToVideoLoadingWindows" Height="450" Width="800">
+    <Grid>
+        
+        <TextBlock x:Name="loadText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="PowerPointを動画に変換中" VerticalAlignment="Top" Width="440" Height="62" TextAlignment="Center" FontSize="36"  FontFamily="Yu Gothic UI Semibold" Margin="0,155,0,0"/>
+        <Image x:Name="gifImage"  Stretch="Uniform"  HorizontalAlignment="Center" Height="100" Margin="0,222,0,0" VerticalAlignment="Top" Width="100"/>
+    
+    </Grid>
+</Window>

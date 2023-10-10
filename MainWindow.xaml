@@ -1,0 +1,72 @@
+﻿<Window x:Class="pptTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pptTester"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="640" Width="1280">
+
+
+    <Window.InputBindings>
+        <KeyBinding Key="I" Modifiers="Control" Command="{Binding OpenSettingsCommand}" />
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="260" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- GridSplitterを使ってパネルの移動が可能 -->
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" />
+
+
+        <!-- 上部の画面領域 -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+            
+            
+            <!-- 上部左側の画面 -->
+            <Border Background="LightGray">
+                <!-- 上部左側の画面のコンテンツをここに配置 -->
+                
+                <!--動画埋め込み1-->
+                <MediaElement x:Name="videoPlayer"  RenderTransformOrigin="0.5,0.5"  MediaEnded="videoPlayer_MediaEnded" LoadedBehavior="Manual" Loaded="videoPlayer_Loaded">
+                </MediaElement> 
+               
+            </Border>
+            
+            
+            <!-- 上部右側の画面 -->
+            <Border Grid.Column="2" Background="LightBlue" >
+                <MediaElement x:Name="videoPlayer2"  RenderTransformOrigin="0.5,0.5"  MediaEnded="videoPlayer_MediaEnded" LoadedBehavior="Manual" Loaded="videoPlayer_Loaded">
+                </MediaElement>
+            </Border>
+        </Grid>
+
+
+
+        <!-- 下部の画面領域 -->
+        <Border Grid.Row="2" Background="LightGreen">
+            <!-- 下部の画面のコンテンツをここに配置 -->
+            <wv2:WebView2 x:Name="webView1" Source="" />
+        </Border>
+        <TextBlock x:Name="text1" Text="" FontSize="20" HorizontalAlignment="Center"  />
+        <TextBlock x:Name="txtInfo" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
+    </Grid>
+
+
+</Window>
