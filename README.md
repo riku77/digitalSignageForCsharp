@@ -1,10 +1,14 @@
 # アプリ実行方法
 
-下記コマンドの実行
+下記コマンドの実行を実行してリポジトリをローカルにクローン(保存)してください。
 ``` bash
 git clone https://github.com/riku77/digitalSignageForCsharp.git
 ```
-または
+
+下記パスのexeをクリックするとアプリを実際に試すことが可能です
+```
+pptTester\bin\Debug\net6.0-windows\pptTester.exe
+```
 
 # 制作背景
 担任の先生が、とある施設のデジタルサイネージが手動でやっていて<br>
