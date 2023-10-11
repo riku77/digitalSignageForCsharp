@@ -33,3 +33,9 @@ windowsで実行できるインストーラーの作成をVitualStudioが公式�
 
 # 苦戦したところ
 
+## pdfを動画に変換する
+
+
+## 相対パスが使用できない
+相対パスをSystem.IO.Path.GetFullPathで絶対パスに変換する必要があって
+pythonやjavaScriptにない仕様だったので苦戦した。
