@@ -55,6 +55,27 @@ pptxを動画に変換して埋め込むという方式にしました
 その中にiniファイルに記述した動画ファイルのパスをaddして<br>
 動画の再生が終了するとindexをインクリメントまたはリセットする方式に変更した
 
+## 動画再生の終了判定が衝突する問題が発生
+2つの動画を同時に再生しているのですが<br>
+片方の動画が終了するともう片方の動画を終了したと判定される問題が発生した<br>
+調べてみたところ下記のようにすることで終了判定を個別に実装することができた<br>
+```
+MediaElement player = sender as MediaElement;
+      if (player == videoPlayer)
+      {
+          // ウィンドウ1の動画が終了した場合、次の動画を再生
+          currentVideoIndex[0] += 1;
+          player.Position = TimeSpan.FromSeconds(0);
+          StartNextVideo(player, 0);
+      }
+      else if (player == videoPlayer2)
+      {
+          // ウィンドウ2の動画が終了した場合、次の動画を再生
+          currentVideoIndex[1] += 1;
+          player.Position = TimeSpan.FromSeconds(0);
+          StartNextVideo(player, 1);
+      }
+```
 
 ## 相対パスが使用できない
 相対パスをSystem.IO.Path.GetFullPathで絶対パスに変換する必要があって
